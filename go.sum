@@ -1,0 +1,6 @@
+github.com/alecthomas/kong v0.8.1 h1:acZdn3m4lLRobeh3Zi2S2EpnXTd1mOL6U7xVml+vfkY=
+github.com/alecthomas/kong v0.8.1/go.mod h1:n1iCIO2xS46oE8ZfYCNDqdR0b0wZNrXAIAqro/2132U=
+github.com/busyapi/mempass v1.0.0 h1:26vdYQ9Yv0Rq6qGu6qg6ngjawLD4XSzP6jL8RuA85Ek=
+github.com/busyapi/mempass v1.0.0/go.mod h1:mHpfdGklGDWXyfe2iw+dOuSsKCsfhT0SJDgjsj8z7Uc=
+github.com/hellflame/argparse v1.11.0 h1:kyGSAAdRyI8KOEemzDwZ3OO2rbNfSMEa7dbPGlTp9Dk=
+github.com/hellflame/argparse v1.11.0/go.mod h1:nOtOQAtkWh6u5msq6huJxZtjb+Yg9VeN0e7vRuBS49E=
