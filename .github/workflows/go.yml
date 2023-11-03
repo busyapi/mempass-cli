@@ -41,14 +41,17 @@ jobs:
       - name: Check out code into the Go module directory
         uses: actions/checkout@v3
 
+      - name: Get the version tag
+        run: echo "TAG_NAME=$(echo ${{ github.ref }} | sed 's#refs/tags/##')" >> $GITHUB_ENV
+
       - name: Get dependencies
         run: go mod tidy
 
       - name: Build
-        run: GOOS=${{ matrix.GOOS }} GOARCH=${{ matrix.arch }} go build -ldflags "-s -w" -v -o mempass-${{ github.ref }}-${{ matrix.GOOS }}-${{ matrix.arch }}
+        run: GOOS=${{ matrix.GOOS }} GOARCH=${{ matrix.arch }} go build -ldflags "-s -w" -v -o mempass-$TAG_NAME-${{ matrix.GOOS }}-${{ matrix.arch }}
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: mempass-${{ github.ref }}-${{ matrix.GOOS }}-${{ matrix.arch }}
-          path: mempass-${{ github.ref }}-${{ matrix.GOOS }}-${{ matrix.arch }}
+          name: mempass-$TAG_NAME-${{ matrix.GOOS }}-${{ matrix.arch }}
+          path: mempass-$TAG_NAME-${{ matrix.GOOS }}-${{ matrix.arch }}
