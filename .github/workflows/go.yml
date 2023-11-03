@@ -47,7 +47,7 @@ jobs:
         run: go mod tidy
 
       - name: Build
-        run: GOOS=${{ matrix.GOOS }} GOARCH=${{ matrix.arch }} go build -v -o mempass-${{ matrix.GOOS }}-${{ matrix.arch }}
+        run: GOOS=${{ matrix.GOOS }} GOARCH=${{ matrix.arch }} go build -ldflags "-s -w" -v -o mempass-${{ matrix.GOOS }}-${{ matrix.arch }}
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v3
