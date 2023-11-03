@@ -2,9 +2,7 @@ name: Go Build
 
 on:
   push:
-    branches: [ci]
-  pull_request:
-    branches: [ci]
+    tags: [v*]
 
 jobs:
   build:
@@ -16,24 +14,24 @@ jobs:
         os: [ubuntu-latest, macos-latest, windows-latest]
         arch: [amd64, arm64]
         include:
-        - os: ubuntu-latest
-          arch: amd64
-          GOOS: linux
-        - os: ubuntu-latest
-          arch: arm64
-          GOOS: linux
-        - os: macos-latest
-          arch: amd64
-          GOOS: darwin
-        - os: macos-latest
-          arch: arm64
-          GOOS: darwin
-        - os: windows-latest
-          arch: amd64
-          GOOS: windows
-        - os: windows-latest
-          arch: arm64
-          GOOS: windows
+          - os: ubuntu-latest
+            arch: amd64
+            GOOS: linux
+          - os: ubuntu-latest
+            arch: arm64
+            GOOS: linux
+          - os: macos-latest
+            arch: amd64
+            GOOS: darwin
+          - os: macos-latest
+            arch: arm64
+            GOOS: darwin
+          - os: windows-latest
+            arch: amd64
+            GOOS: windows
+          - os: windows-latest
+            arch: arm64
+            GOOS: windows
     steps:
       - name: Set up Go
         uses: actions/setup-go@v3
