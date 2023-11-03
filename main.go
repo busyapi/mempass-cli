@@ -20,12 +20,12 @@ func main() {
 		SymbolsAfter     uint            `short:"s" help:"Number of symbols to add at the end of each word. Default is 0" default:"0"`
 		SymbolsBefore    uint            `short:"S" help:"Number of symbols to add at the begining of each word. Default is 0" default:"0"`
 		SymbolPool       string          `short:"y" help:"Symbols pool. Only used if --symbols-before and/or --symbols-after are set. Default is '@&!-_^$*%,.;:/=+'" xor:"symbol"`
-		Symbol           CharAsByte      `short:"Y" help:"Symbol character. Only used if --symbols-before and/or --symbols-after are set. Default is /" xor:"symbol"`
-		SeparatorRule    mempass.SepRule `short:"t" help:"Separator rule. Default is 'fixed'" enum:"none,fixed,random" default:"fixed"`
+		Symbol           Char            `short:"Y" help:"Symbol character. Only used if --symbols-before and/or --symbols-after are set. Default is /" xor:"symbol"`
+		SeparatorRule    mempass.SepRule `short:"t" help:"Separator rule. Possible value:'fixed,random'. Default is 'fixed'" enum:"none,fixed,random" default:"fixed"`
 		SeparatorPool    string          `short:"e" help:"Seperators pool. Only used if --separator-rule is random. Default is '@&!-_^$*%,.;:/=+'" xor:"separator"`
-		Separator        CharAsByte      `short:"E" help:"Separator character. Only used if --separator-rule is fixed. Default is '-'" xor:"separator"`
-		PaddingRule      mempass.PadRule `short:"a" help:"Padding rule. Only used if --padding-length is greater than 0" enum:"fixed,random" default:"fixed"`
-		PaddingSymbol    CharAsByte      `short:"A" help:"Padding symbol. Only used if --padding-rule is fixed. Default is '.'" default:"."`
+		Separator        Char            `short:"E" help:"Separator character. Only used if --separator-rule is fixed. Default is '-'" xor:"separator"`
+		PaddingRule      mempass.PadRule `short:"a" help:"Padding rule. Possible value:'fixed,random'. Only used if --padding-length is greater than 0" enum:"fixed,random" default:"fixed"`
+		PaddingSymbol    Char            `short:"A" help:"Padding symbol. Only used if --padding-rule is fixed. Default is '.'" default:"."`
 		PaddingLength    uint            `short:"l" help:"Password length to reach with padding."`
 		LeetRatio        float32         `short:"L" help:"1337 coding ratio. 0.0 = no 1337, 1.0 = all 1337, 0.3 = 1/3 1337, etc. Default is 0" default:"0"`
 		CalculateEntropy bool            `short:"n" help:"Calculate entropy. Default is false"`
@@ -65,16 +65,16 @@ func main() {
 	}
 }
 
-// CharAsByte is a type that will store the byte value of the provided character.
-type CharAsByte byte
+// Char is a type that will store the byte value of the provided character.
+type Char byte
 
 // UnmarshalText ensures that only a single character is used for the flag
 // and converts it to its byte value.
-func (c *CharAsByte) UnmarshalText(text []byte) error {
+func (c *Char) UnmarshalText(text []byte) error {
 	if len(text) != 1 {
 		return fmt.Errorf("the input must be exactly one character long")
 	}
-	*c = CharAsByte(text[0])
+	*c = Char(text[0])
 	return nil
 }
 

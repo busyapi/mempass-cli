@@ -8,7 +8,17 @@ Based on the [mempass](https://github.com/busyapi/mempass) library.
 
 ## Installation
 
-Download source and then run `make && make install`.
+### From source
+
+First be sure you have a valid [Go](https://go.dev/dl/) installation.
+
+Then clone this repo and run `make && make install` (or `make && sudo make install` depending on the permissions on the install directory).
+
+The default install directory is `/usr/local/bin`. You can change it by running `make install INSTALL_DIR=/path/to/install/dir`
+
+### Binary
+
+SOON
 
 ## Usage
 
@@ -27,23 +37,23 @@ Flags:
   -M, --max-word-length=8         Maximum word length. O = no maximum. Default is 8
   -d, --digits-after=0            Number of digits to add at the end of each word. Default is 0
   -D, --digits-before=0           Number of digits to add at the begining of each word. Default is 0
-  -u, --uppercase-rule="none"     Capitalization rule. Default is none
-  -R, --uppercase-ratio=0.2       Uppercase ratio. 0.0 = no uppercase, 1.0 = all uppercase, 0.3 = 1/3 uppercase, etc.
-                                  Only used if --uppercase-rule is random. Default is 0.2
+  -u, --uppercase-rule="none"     Capitalization rule. Possible
+                                  value:'none,all,alternate,word_alternate,first_letter,last_letter,all_but_first_letter,all_but_last_letter,random'
+                                  Default is none
+  -R, --uppercase-ratio=0.2       Uppercase ratio. 0.0 = no uppercase, 1.0 = all uppercase, 0.3 = 1/3 uppercase, etc. Only
+                                  used if --uppercase-rule is random. Default is 0.2
   -s, --symbols-after=0           Number of symbols to add at the end of each word. Default is 0
   -S, --symbols-before=0          Number of symbols to add at the begining of each word. Default is 0
-  -y, --symbol-pool=STRING        Symbols pool. Only used if --symbols-before and/or --symbols-after are set. Default
-                                  is '@&!-_^$*%,.;:/=+'
-  -Y, --symbol=CHAR-AS-BYTE       Symbol character. Only used if --symbols-before and/or --symbols-after are set.
-                                  Default is /
-  -t, --separator-rule="fixed"    Separator rule. Default is 'fixed'
-  -e, --separator-pool=STRING     Seperators pool. Only used if --separator-rule is random. Default is
+  -y, --symbol-pool=STRING        Symbols pool. Only used if --symbols-before and/or --symbols-after are set. Default is
                                   '@&!-_^$*%,.;:/=+'
-  -E, --separator=CHAR-AS-BYTE    Separator character. Only used if --separator-rule is fixed. Default is '-'
-  -a, --padding-rule="fixed"      Padding rule. Only used if --padding-length is greater than 0
+  -Y, --symbol=CHAR               Symbol character. Only used if --symbols-before and/or --symbols-after are set. Default is /
+  -t, --separator-rule="fixed"    Separator rule. Possible value:'fixed,random'. Default is 'fixed'
+  -e, --separator-pool=STRING     Seperators pool. Only used if --separator-rule is random. Default is '@&!-_^$*%,.;:/=+'
+  -E, --separator=CHAR            Separator character. Only used if --separator-rule is fixed. Default is '-'
+  -a, --padding-rule="fixed"      Padding rule. Possible value:'fixed,random'. Only used if --padding-length is greater than 0
   -A, --padding-symbol=.          Padding symbol. Only used if --padding-rule is fixed. Default is '.'
   -l, --padding-length=UINT       Password length to reach with padding.
-  -L, --leet-ratio=0               1337 coding ratio. 0.0 = no 1337, 1.0 = all 1337, 0.3 = 1/3 1337, etc. Default is 0
+  -L, --leet-ratio=0              1337 coding ratio. 0.0 = no 1337, 1.0 = all 1337, 0.3 = 1/3 1337, etc. Default is 0
   -n, --calculate-entropy         Calculate entropy. Default is false
   -o, --output="simple"           Output format (simple, json). Default is simple
 ```
