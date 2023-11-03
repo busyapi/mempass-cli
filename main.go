@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"log"
 
 	"github.com/alecthomas/kong"
 	"github.com/busyapi/mempass"
@@ -62,7 +61,7 @@ func main() {
 	for i := 0; i < int(CLI.PasswordCount); i++ {
 		gen := mempass.NewGenerator(&opt)
 		pwd, ent, _ := gen.GenPassword()
-		log.Println(format(pwd, ent, CLI.Output))
+		fmt.Println(format(pwd, ent, CLI.Output))
 	}
 }
 
