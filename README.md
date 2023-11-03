@@ -37,15 +37,11 @@ Flags:
   -M, --max-word-length=8         Maximum word length. O = no maximum. Default is 8
   -d, --digits-after=0            Number of digits to add at the end of each word. Default is 0
   -D, --digits-before=0           Number of digits to add at the begining of each word. Default is 0
-  -u, --uppercase-rule="none"     Capitalization rule. Possible
-                                  value:'none,all,alternate,word_alternate,first_letter,last_letter,all_but_first_letter,all_but_last_letter,random'
-                                  Default is none
-  -R, --uppercase-ratio=0.2       Uppercase ratio. 0.0 = no uppercase, 1.0 = all uppercase, 0.3 = 1/3 uppercase, etc. Only
-                                  used if --uppercase-rule is random. Default is 0.2
+  -u, --uppercase-rule="none"     Capitalization rule. Possible value:'none,all,alternate,word_alternate,first_letter,last_letter,all_but_first_letter,all_but_last_letter,random' Default is none
+  -R, --uppercase-ratio=0.2       Uppercase ratio. 0.0 = no uppercase, 1.0 = all uppercase, 0.3 = 1/3 uppercase, etc. Only used if --uppercase-rule is random. Default is 0.2
   -s, --symbols-after=0           Number of symbols to add at the end of each word. Default is 0
   -S, --symbols-before=0          Number of symbols to add at the begining of each word. Default is 0
-  -y, --symbol-pool=STRING        Symbols pool. Only used if --symbols-before and/or --symbols-after are set. Default is
-                                  '@&!-_^$*%,.;:/=+'
+  -y, --symbol-pool=STRING        Symbols pool. Only used if --symbols-before and/or --symbols-after are set. Default is '@&!-_^$*%,.;:/=+'
   -Y, --symbol=CHAR               Symbol character. Only used if --symbols-before and/or --symbols-after are set. Default is /
   -t, --separator-rule="fixed"    Separator rule. Possible value:'fixed,random'. Default is 'fixed'
   -e, --separator-pool=STRING     Seperators pool. Only used if --separator-rule is random. Default is '@&!-_^$*%,.;:/=+'
@@ -55,5 +51,23 @@ Flags:
   -l, --padding-length=UINT       Password length to reach with padding.
   -L, --leet-ratio=0              1337 coding ratio. 0.0 = no 1337, 1.0 = all 1337, 0.3 = 1/3 1337, etc. Default is 0
   -n, --calculate-entropy         Calculate entropy. Default is false
-  -o, --output="simple"           Output format (simple, json). Default is simple
+  -o, --output="simple"           Output format (simple, toml). Default is simple
+  -C, --config=CONFIG-FLAG        Path to config file
+```
+
+## Configuration file
+
+By default `mempass` will try to read `/etc/mempass/mempass.json` to get its configuration. You can set a different path with the `-C` flag. Parameters that are set on the command line will override those defined in the configuration file.
+
+The configuration file is a simple JSON in which field names are camelCase version of the flags, i.e. `useRand` for `--use-rand`, `wordCount` for `--word-count`, etc.
+
+Here is an example:
+
+```json
+{
+  "useRand": true,
+  "minWordLength": 4,
+  "maxWordLength": 6,
+  "separator": "!"
+}
 ```
