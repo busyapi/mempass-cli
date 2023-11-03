@@ -15,7 +15,7 @@ func main() {
 		MaxWordLength    uint            `short:"M" help:"Maximum word length. O = no maximum. Default is 8" default:"8"`
 		DigitsAfter      uint            `short:"d" help:"Number of digits to add at the end of each word. Default is 0" default:"0"`
 		DigitsBefore     uint            `short:"D" help:"Number of digits to add at the begining of each word. Default is 0" default:"0"`
-		UppercaseRule    mempass.CapRule `short:"u" help:"Capitalization rule. Default is none" default:"none" enum:"none,all,alternate,word_alternate,first_letter,last_letter,all_but_first_letter,all_but_last_letter,random"`
+		UppercaseRule    mempass.CapRule `short:"u" help:"Capitalization rule. Possible value:'none,all,alternate,word_alternate,first_letter,last_letter,all_but_first_letter,all_but_last_letter,random' Default is none" default:"none" enum:"none,all,alternate,word_alternate,first_letter,last_letter,all_but_first_letter,all_but_last_letter,random"`
 		UppercaseRatio   float32         `short:"R" help:"Uppercase ratio. 0.0 = no uppercase, 1.0 = all uppercase, 0.3 = 1/3 uppercase, etc. Only used if --uppercase-rule is random. Default is 0.2" default:"0.2"`
 		SymbolsAfter     uint            `short:"s" help:"Number of symbols to add at the end of each word. Default is 0" default:"0"`
 		SymbolsBefore    uint            `short:"S" help:"Number of symbols to add at the begining of each word. Default is 0" default:"0"`
