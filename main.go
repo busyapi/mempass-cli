@@ -72,7 +72,7 @@ type Cli struct {
 	LeetRatio        float32         `short:"L" help:"1337 coding ratio. 0.0 = no 1337, 1.0 = all 1337, 0.3 = 1/3 1337, etc. Default is 0" default:"0" json:"leetRatio"`
 	CalculateEntropy bool            `short:"n" help:"Calculate entropy. Default is false" json:"calculateEntropy"`
 	PasswordCount    uint            `short:"T" help:"Number of passwords to generate. Default is 1" default:"1" json:"passwordCount"`
-	Output           string          `short:"o" help:"Output format (simple, toml). Default is simple" enum:"simple,toml" default:"simple" json:"output"`
+	Output           string          `short:"o" help:"Output format (simple, json). Default is simple" enum:"simple,json" default:"simple" json:"output"`
 	Config           kong.ConfigFlag `short:"C" help:"Path to config file"`
 }
 
