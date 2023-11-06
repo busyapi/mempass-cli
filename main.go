@@ -43,11 +43,27 @@ func main() {
 		opt.Passphrase = readLine()
 	}
 
+	pwds := make([]string, cli.PasswordCount)
+
 	for i := 0; i < int(cli.PasswordCount); i++ {
 		gen := mempass.NewGenerator(&opt)
 		pwd, ent, _ := gen.GenPassword()
-		fmt.Println(format(pwd, ent, cli.Output))
+		pwds[i] = format(pwd, ent, cli.Output)
 	}
+
+	fmt.Println(formatOutput(pwds, cli.Output))
+}
+
+func formatOutput(pwds []string, format string) string {
+	if len(pwds) == 1 {
+		return pwds[0]
+	}
+
+	if format == "json" {
+		return fmt.Sprintf("[%v]", strings.Join(pwds, ","))
+	}
+
+	return strings.Join(pwds, "\n")
 }
 
 type Cli struct {
