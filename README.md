@@ -26,10 +26,7 @@ SOON
 
 ```sh
 $ mempass -h
-Usage: mempass [<password-count>]
-
-Arguments:
-  [<password-count>]    Number of passwords to generate. Default is 1
+Usage: mempass
 
 Flags:
   -h, --help                      Show context-sensitive help.
