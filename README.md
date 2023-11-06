@@ -53,7 +53,8 @@ Flags:
   -l, --padding-length=UINT       Password length to reach with padding.
   -L, --leet-ratio=0              1337 coding ratio. 0.0 = no 1337, 1.0 = all 1337, 0.3 = 1/3 1337, etc. Default is 0
   -n, --calculate-entropy         Calculate entropy. Default is false
-  -o, --output="simple"           Output format (simple, toml). Default is simple
+  -T, --password-count=1          Number of passwords to generate. Default is 1
+  -o, --output="simple"           Output format (simple, json). Default is simple
   -C, --config=CONFIG-FLAG        Path to config file
 ```
 
