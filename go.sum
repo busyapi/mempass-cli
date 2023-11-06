@@ -4,7 +4,7 @@ github.com/alecthomas/kong v0.8.1 h1:acZdn3m4lLRobeh3Zi2S2EpnXTd1mOL6U7xVml+vfkY
 github.com/alecthomas/kong v0.8.1/go.mod h1:n1iCIO2xS46oE8ZfYCNDqdR0b0wZNrXAIAqro/2132U=
 github.com/alecthomas/repr v0.1.0 h1:ENn2e1+J3k09gyj2shc0dHr/yjaWSHRlrJ4DPMevDqE=
 github.com/alecthomas/repr v0.1.0/go.mod h1:2kn6fqh/zIyPLmm3ugklbEi5hg5wS435eygvNfaDQL8=
-github.com/busyapi/mempass v1.0.2 h1:pFQ4cZd5Mx7lgQp0BhQLgsmGuDOWsqkWzq3gYf4DXcY=
-github.com/busyapi/mempass v1.0.2/go.mod h1:mHpfdGklGDWXyfe2iw+dOuSsKCsfhT0SJDgjsj8z7Uc=
+github.com/busyapi/mempass v1.1.1 h1:TFuHeW+dovjmr+b6ENsqfqdi3uvzLKyI5BpDkhaw2ks=
+github.com/busyapi/mempass v1.1.1/go.mod h1:Us9H9QpjglXt7WeVxW6R4OMDuGjmHZkTq93VhSa+Oq0=
 github.com/hexops/gotextdiff v1.0.3 h1:gitA9+qJrrTCsiCl7+kh75nPqQt1cx4ZkudSTLoUqJM=
 github.com/hexops/gotextdiff v1.0.3/go.mod h1:pSWU5MAI3yDq+fZBTazCSJysOMbxWL1BSow5/V2vxeg=

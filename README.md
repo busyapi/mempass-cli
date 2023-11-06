@@ -22,6 +22,8 @@ SOON
 
 ## Usage
 
+### Options
+
 ```sh
 $ mempass -h
 Usage: mempass [<password-count>]
@@ -31,13 +33,13 @@ Arguments:
 
 Flags:
   -h, --help                      Show context-sensitive help.
-  -r, --use-rand                  Use randomly generated memorable words instead of dictionary words
+  -m, --mode="dict"               Generation mode. Possible value:'dict,rand,passphrase'. Read passphrase from stdin. Default is 'dict'
   -c, --word-count=3              Number of words to generate. Using less than 2 is discouraged. Default is 3
-  -m, --min-word-length=6         Minimum word length. O = no minimum. Using less than 4 is discouraged. Default is 6
-  -M, --max-word-length=8         Maximum word length. O = no maximum. Default is 8
+  -w, --min-word-length=6         Minimum word length. O = no minimum. Using less than 4 is discouraged. Default is 6
+  -W, --max-word-length=8         Maximum word length. O = no maximum. Default is 8
   -d, --digits-after=0            Number of digits to add at the end of each word. Default is 0
   -D, --digits-before=0           Number of digits to add at the begining of each word. Default is 0
-  -u, --uppercase-rule="none"     Capitalization rule. Possible value:'none,all,alternate,word_alternate,first_letter,last_letter,all_but_first_letter,all_but_last_letter,random' Default is none
+  -u, --uppercase-rule="none"     Capitalization rule. Possible value:'none,all,alternate,word_alternate,first_letter,last_letter,all_but_first_letter,all_but_last_letter,random'. Default is none
   -R, --uppercase-ratio=0.2       Uppercase ratio. 0.0 = no uppercase, 1.0 = all uppercase, 0.3 = 1/3 uppercase, etc. Only used if --uppercase-rule is random. Default is 0.2
   -s, --symbols-after=0           Number of symbols to add at the end of each word. Default is 0
   -S, --symbols-before=0          Number of symbols to add at the begining of each word. Default is 0
@@ -55,6 +57,21 @@ Flags:
   -C, --config=CONFIG-FLAG        Path to config file
 ```
 
+### Passphrase mode
+
+With this mode you can input a passphrase and the program will transform it into a strong password by adding uppercase letters, numbers and symbols.
+
+You should enter a passphrase of at leat 12 ou 14 characters to get good results.
+
+```bash
+$ echo "Generate a strong password" | mempass -mpassphrase -T5
+Gen3raTe-a-strong-pA55worD
+G3Nera7e-a-sTronG-p4ssword
+Gener47E-A-s7rong-passworD
+GENerate-4-s7r0ng-paSsword
+GEneraT3-a-s7rong-pa5sworD
+```
+
 ## Configuration file
 
 By default `mempass` will try to read `/etc/mempass/mempass.json` to get its configuration. You can set a different path with the `-C` flag. Parameters that are set on the command line will override those defined in the configuration file.
@@ -65,7 +82,7 @@ Here is an example:
 
 ```json
 {
-  "useRand": true,
+  "Mode": "rand",
   "minWordLength": 4,
   "maxWordLength": 6,
   "separator": "!"
